@@ -1,0 +1,274 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+html,
+body {
+  height: 100%;
+  /* Ensure the body takes full height */
+  margin: 0;
+  /* Remove default margin */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+
+
+.main {
+  flex: 1;
+  /* Allow main content to grow and take available space */
+  /* padding: 10px; */
+  /* Padding for main content */
+}
+
+
+/* scrolling */
+
+
+.scroll-container {
+  height: 100vh;
+  /* Set to full viewport height or as needed */
+  overflow-y: scroll;
+  /* Enable vertical scrolling */
+  scrollbar-width: none;
+  /* Hide scrollbar in Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar in Chrome and Safari */
+}
+
+/* Optional: styling for the content */
+.scroll-container p {
+  padding: 10px;
+  margin: 0;
+}
+
+
+
+/* appbar */
+
+.appBar {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.drawerIcon {
+  display: none;
+  /* Hide by default */
+  cursor: pointer;
+  color: white;
+  margin-right: 20px;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.navList li {
+  margin: 0 15px;
+}
+
+.navList a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Media query for mobile screens */
+.appBar {
+  display: flex;
+  justify-content: space-between;
+  /* Spread out items */
+  align-items: center;
+  /* Center items vertically */
+  padding: 10px;
+  background-color: #333;
+}
+
+.drawerIcon {
+  display: none;
+  /* Hide by default */
+  cursor: pointer;
+  /* Changes cursor to pointer when hovering */
+  color: white;
+  /* Icon color */
+}
+
+@media (max-width: 768px) {
+  .drawerIcon {
+    display: flex;
+    /* Show the drawer icon on mobile */
+    margin-left: auto;
+    /* Push the drawer icon to the right */
+  }
+
+  .navList {
+    display: none;
+    /* Hide the nav list by default */
+    flex-direction: column;
+    /* Stack items vertically */
+    position: absolute;
+    /* Position the dropdown */
+    background-color: #333;
+    /* Background color for dropdown */
+    top: 60px;
+    /* Adjust based on the appBar height */
+    right: 0;
+    /* Align dropdown to the right */
+    width: 100%;
+    /* Full width */
+    padding: 10px 0;
+    /* Padding */
+    z-index: 1000;
+    /* Ensure it appears above other content */
+  }
+
+  .navList.show {
+    display: flex;
+    /* Show the nav list when toggled */
+  }
+
+  .navList li {
+    margin: 10px 0;
+    /* Space between vertical items */
+  }
+}
+
+
+/* footer */
+
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  align-self: baseline;
+  /* width: 100%; */
+  /* For proper positioning */
+}
+
+.footerNavList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+.footerNavList li {
+  margin: 0 15px;
+}
+
+.footerNavList a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footerNavList a:hover {
+  color: #ccc;
+  /* Lighten the color on hover */
+}
+
+
+/* bouncde */
+
+
+
+.bounce-div {
+  width: 200px;
+  height: 100px;
+  background-color: #e74c3c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  animation: bounce 1s infinite;
+  /* Animation properties */
+}
+
+/* Keyframes for bouncing */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+    /* Original position */
+  }
+
+  40% {
+    transform: translateY(-30px);
+    /* Move up */
+  }
+
+  60% {
+    transform: translateY(-15px);
+    /* Move slightly down */
+  }
+}
+
+
+
+                       /* @keyframes */
+
+                       @keyframes move {
+                        0% { transform: translate(0, 0); }
+                        50% { transform: translate(50px, 50px); }
+                        100% { transform: translate(0, 0); }
+                      }
+                      
+
+                      @keyframes fade-in {
+                        10% { opacity: 0; }
+                        100% { opacity: 2; }
+                      }
+                      
+                      @keyframes fade-out {
+                        0% { opacity: 1; }
+                        100% { opacity: 0; }
+                      }
+                      @keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fade-in-out {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.fade-in {
+  animation: move 1s ease-in-out infinite; /* Include animation properties here */
+}
